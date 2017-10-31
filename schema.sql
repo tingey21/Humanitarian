@@ -7,8 +7,8 @@ create table users(
 )
 
 create table blogposts(
-    id serial primary key,
-    title varchar(255),
-    blog text,
-    author varchar(255)
+    id serial primary key not null,
+    title varchar(255) not null,
+    blog text not null,
+    author varchar(255) not null
 )

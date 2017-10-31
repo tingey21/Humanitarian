@@ -14,10 +14,11 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
 }))
-const db = app.get('db');
+
 app.use(passport.initialize());
 app.use(passport.session());
 massive(process.env.CONNECTION_STRING).then((db) => {
+    console.log(process.env.CONNECTION_STRING)
     app.set('db', db)
 })
 
@@ -79,11 +80,26 @@ app.get('/auth/logout', (req, res) => {
     res.redirect('http://localhost:3000/')
 })
 
+
+/////////////////Blog End points ////////////////////
+
 app.post('/api/addBlog', (req, res ) =>{
-    
+    const db = app.get('db');
     const { title, blog, author} = req.body;
     console.log(title,blog,author)
     db.create_blog_post([title,blog,author]).then(res.status(200))
+})
+
+app.get('/api/getBlogs', (req,res) => {
+    const db = app.get('db');
+    db.get_all_blogs().then((posts) => res.send(posts))
+})
+
+app.post('/api/deleteBlog', (req,res) => {
+    const db = app.get('db');
+    console.log(req.body.id)
+    
+    db.remove_blog_by_id([req.body.id])
 })
 
 const PORT = 8080;

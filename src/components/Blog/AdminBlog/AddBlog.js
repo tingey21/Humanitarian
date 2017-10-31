@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 export default class AddBlog extends Component {
     constructor(){
         super()
 
         this.state={
-            title: '',
-            blogPost: '',
-            author: '',
-            title1: '',
-            blog: '',
-            author1: '',
+            title: null,
+            blogPost: null,
+            author: null
             
         }
         this.handleAuthor = this.handleAuthor.bind(this);
@@ -30,6 +28,8 @@ export default class AddBlog extends Component {
        
         console.log(blog)
         axios.post('/api/addBlog', blog)
+
+        this.props.history.push('/Admin/blog')
     }
 
     handleTitle(e){
@@ -56,6 +56,7 @@ export default class AddBlog extends Component {
         onChange ={this.handleBlog} />
         <input className = 'author' placeholder ='author name yo'
         onChange={this.handleAuthor}/>
+
         <button className='btn' value = "submit" onClick={this.handleSubmit}>Submit</button>
         
       </div>
