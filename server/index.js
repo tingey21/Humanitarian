@@ -5,7 +5,7 @@ const bodyParser = require("body-parser")
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
     , massive = require("massive")
-
+    
 const app = express();
 
 app.use(bodyParser.json());
@@ -14,7 +14,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
 }))
-
+const db = app.get('db');
 app.use(passport.initialize());
 app.use(passport.session());
 massive(process.env.CONNECTION_STRING).then((db) => {
@@ -79,7 +79,12 @@ app.get('/auth/logout', (req, res) => {
     res.redirect('http://localhost:3000/')
 })
 
-
+app.post('/api/addBlog', (req, res ) =>{
+    
+    const { title, blog, author} = req.body;
+    console.log(title,blog,author)
+    db.create_blog_post([title,blog,author]).then(res.status(200))
+})
 
 const PORT = 8080;
 app.listen(PORT, () => console.log(`listening on port: ${PORT} `))

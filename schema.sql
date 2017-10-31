@@ -5,3 +5,10 @@ create table users(
     img varchar(255),
     auth_id varchar(255)
 )
+
+create table blogposts(
+    id serial primary key,
+    title varchar(255),
+    blog text,
+    author varchar(255)
+)
