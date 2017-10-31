@@ -1,0 +1,32 @@
+.page{
+    background-color: #fed74f;
+    color: #552f1d;    
+    display:flex;
+    flex-direction: column;
+    
+}
+.brown{
+    height:13px;
+    width: 100%;
+    background: #552f1c;    
+}
+.header{
+    margin-left: auto;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    position: left;
+    justify-content: space-around;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-weight: 700;
+    border: solid black 1px;
+}
+
+.imgscroller{
+    margin: auto;
+    padding: 0px 100px;
+    
+}
+
