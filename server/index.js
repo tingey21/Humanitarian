@@ -5,10 +5,12 @@ const bodyParser = require("body-parser")
     , passport = require('passport')
     , Auth0Strategy = require('passport-auth0')
     , massive = require("massive")
+    , stripe = require("stripe")(process.env.REACT_APP_STRIPESK)
     
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
@@ -102,5 +104,121 @@ app.post('/api/deleteBlog', (req,res) => {
     db.remove_blog_by_id([req.body.id])
 })
 
+app.get('/api/getAllOpp', (req, res) => {
+    const db = app.get('db');
+    db.get_all_volunteer().then((options) => res.send(options))
+})
+app.post('/api/addvolunteer', (req, res ) =>{
+    const db = app.get('db');
+    console.log(req.body);
+    const { title, details, link, overseas} = req.body;
+    // console.log(title,blog,author)
+    db.create_volunteer_post([title,details,link, overseas]).then(res.status(200))
+})
+app.post('/api/deleteOpp', (req,res) => {
+    const db = app.get('db');
+    console.log(req.body.id)
+    
+    db.remove_opp_by_id([req.body.id])
+})
+
+app.get('/api/getOverseasOpp', (req,res) =>{
+    const db = app.get('db')
+    db.get_overseas_volunteer().then((options) => res.send(options))
+
+})
+
+app.get('/api/getLocalOpp', (req,res) =>{
+    const db = app.get('db')
+    db.get_local_volunteer().then((options) => res.send(options))
+
+})
+
+
+
+////////////////////Stipe////////////////////////
+
+
+app.post('/api/payment', function(req, res, next){
+    //convert amount to pennies
+    const amountArray = req.body.amount.toString().split('');
+    const pennies = [];
+    for (var i = 0; i < amountArray.length; i++) {
+      if(amountArray[i] === ".") {
+        if (typeof amountArray[i + 1] === "string") {
+          pennies.push(amountArray[i + 1]);
+        } else {
+          pennies.push("0");
+        }
+        if (typeof amountArray[i + 2] === "string") {
+          pennies.push(amountArray[i + 2]);
+        } else {
+          pennies.push("0");
+        }
+          break;
+      } else {
+          pennies.push(amountArray[i])
+      }
+    }
+    const convertedAmt = parseInt(pennies.join(''));
+  
+    const charge = stripe.charges.create({
+    amount: convertedAmt, // amount in cents, again
+    currency: 'usd',
+    source: req.body.token.id,
+    description: 'donation from site'
+  }, function(err, charge) {
+      if (err) return res.sendStatus(500)
+      return res.sendStatus(200);
+    // if (err && err.type === 'StripeCardError') {
+    //   // The card has been declined
+    // }
+  });
+  });
+  ///////////////////NODEMAILER ENDPOINTS////////////////////////
+
+  app.post('/api/AddEmail', (req,res) =>{ console.log(req.body)
+    const db = app.get('db')
+    const {email} = req.body
+
+    db.add_email([email])
+    
+
+nodemailer.createTestAccount((err, account) => {
+    
+       
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false, 
+            auth: {
+                user: "thenonprofit40@gmail.com", 
+                pass: "this is my password"  
+            }
+        });
+        
+        
+        let mailOptions = {
+            from: '"The Non Profit" <thenonprofit40@gmail.com>', // sender address
+            to: `${email}`, // list of receivers
+            subject: 'Thank you', // Subject line
+            text: 'Hello world?', // plain text body
+            html: '<b>"Hello world?"</b>' // html body
+        };
+    
+        
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message sent: %s', info.messageId);
+          
+            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    
+        });
+    });
+})
+  
+  
 const PORT = 8080;
 app.listen(PORT, () => console.log(`listening on port: ${PORT} `))

@@ -2,10 +2,48 @@ import React, { Component } from 'react'
 import './LandingPage.css';
 import {Link} from 'react-router-dom'
 import Carousel from './Carousel'
+import axios from 'axios'
 export default class LandingPage extends Component {
+    constructor()
+    {
+        super();
+
+        this.state = ({
+            email: 'a',
+        })
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e){
+        this.setState({
+            email: e.target.value
+        })
+        console.log(this.state.email)
+    }
+
+    handleSubmit(){
+        var emailToUse = {
+            email: this.state.email
+        }
+        var arr =emailToUse.email.split('@');
+            
+        
+    axios.get(`https://api.mailtest.in/v1/${arr[1]}`).then((resp) =>{ console.log(resp.data.status)
+        if(resp.data.status == 'ACTIVE'){
+            axios.post('/api/addEmail', emailToUse)
+        }
+        else{
+            console.log('type in a real domain stupid idiot')
+        }
+})
+
+    }
+
   render() {
     return (
         //div+div>div*6^div>div*2^div>div>div*3^div^div>div>div^div*2^div>div*6
+      
       <div className = "page">
          <div className = "brown"></div>
          <div className = "header">
@@ -27,9 +65,10 @@ export default class LandingPage extends Component {
          <div className = "news/image">
              <div className = "email">
                  <div>text bubble</div>
-                 <div> call to sign up</div>
                  <div> input</div>
-                 <button>
+                 <div> <input type="text" placeholder='email' onChange ={this.handleChange}/>
+                 {console.log(this.state.email)}</div>
+                 <button onClick = {this.handleSubmit}>
                      submit
                  </button>
              </div>

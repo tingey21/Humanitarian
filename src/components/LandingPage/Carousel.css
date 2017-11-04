@@ -90,7 +90,8 @@
       transform: translate3d(0, 0, 0);
       position: relative;
       list-style: none;
-      white-space: nowrap; }
+      white-space: nowrap;
+    margin: 0;}
     .carousel .thumb {
       -webkit-transition: border 0.15s ease-in;
       -moz-transition: border 0.15s ease-in;

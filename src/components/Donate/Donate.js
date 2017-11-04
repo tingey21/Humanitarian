@@ -1,12 +1,27 @@
 import React, { Component } from 'react'
+import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
 
-export default class Donate extends Component {
-
+export default class Donate extends Component { 
+  
+  onToken = (token) => {
+  token.card = void 0;
+  console.log('token', token);
+  
+  axios.post('/api/payment', { token, amount: 1000 } ).then(response => {
+    alert('we are in business')
+  });
+}
 
   render() {
     return (
       <div>
-       <a href="https://app.moonclerk.com/pay/1oillgyr8for"><img alt="Donate" src="https://s3.amazonaws.com/moonclerk/buttons/donate.png" /></a>
+         <StripeCheckout
+          token={this.onToken}
+          stripeKey={ 
+            process.env.REACT_APP_STRIPEPK}
+          amount={1300}
+        />
       </div>
     )
   }

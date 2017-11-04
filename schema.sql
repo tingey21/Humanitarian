@@ -12,3 +12,17 @@ create table blogposts(
     blog text not null,
     author varchar(255) not null
 )
+
+create table voptions(
+    id serial primary key not null,
+    volunteername varchar(255) not null,
+    volunteerdetails varchar(255) not null,
+    link varchar(300),
+    overseas boolean 
+)
+
+create table emails(
+    id serial primary key not null,
+    email varchar(255) not null,
+    thankyou boolean default FALSE
+)

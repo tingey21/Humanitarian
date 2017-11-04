@@ -49,9 +49,9 @@ export default class AddBlog extends Component {
     return (
       <div>
           
-        <input className = 'title' placeholder ="title" 
+        <input className = 'title' placeholder ="title"     
         onChange={this.handleTitle}/>
-        {console.log(this.state.title1)}
+        
         <input className = 'blog' placeholder = "add blog here"
         onChange ={this.handleBlog} />
         <input className = 'author' placeholder ='author name yo'
