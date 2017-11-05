@@ -1,2 +1,2 @@
-insert into newsletter (email) 
+insert into emails (email) 
 values ($1)

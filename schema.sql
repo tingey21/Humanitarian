@@ -23,6 +23,5 @@ create table voptions(
 
 create table emails(
     id serial primary key not null,
-    email varchar(255) not null,
-    thankyou boolean default FALSE
+    email varchar(255) not null
 )

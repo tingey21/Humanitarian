@@ -6,6 +6,7 @@ const bodyParser = require("body-parser")
     , Auth0Strategy = require('passport-auth0')
     , massive = require("massive")
     , stripe = require("stripe")(process.env.REACT_APP_STRIPESK)
+    , nodemailer = require('nodemailer');
     
 const app = express();
 
@@ -181,7 +182,7 @@ app.post('/api/payment', function(req, res, next){
     const db = app.get('db')
     const {email} = req.body
 
-    db.add_email([email])
+    db.add_email([email]);
     
 
 nodemailer.createTestAccount((err, account) => {
@@ -202,8 +203,8 @@ nodemailer.createTestAccount((err, account) => {
             from: '"The Non Profit" <thenonprofit40@gmail.com>', // sender address
             to: `${email}`, // list of receivers
             subject: 'Thank you', // Subject line
-            text: 'Hello world?', // plain text body
-            html: '<b>"Hello world?"</b>' // html body
+            text: 'Thank you for subcribing to The Non Profit NewsLetter ', // plain text body
+            html: '<b>"Thank you for subcribing to The Non Profit NewsLetter "</b>' // html body
         };
     
         
@@ -219,6 +220,54 @@ nodemailer.createTestAccount((err, account) => {
     });
 })
   
+
+
+app.get('/api/getAllEmails', (req, res) => {
+    const db = app.get('db')
+    db.get_all_emails().then((resp) => {
+        
+        res.send(resp)})
+
+})
+
+app.post('/api/sendNewsLetter', (req,res) => {
+    const {email} = req.body[0]
+    const {title, body} = req.body[1]
+
+    nodemailer.createTestAccount((err, account) => {
+        
+           
+            let transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                port: 587,
+                secure: false, 
+                auth: {
+                    user: "thenonprofit40@gmail.com", 
+                    pass: "this is my password"  
+                }
+            });
+            
+            
+            let mailOptions = {
+                from: '"The Non Profit" <thenonprofit40@gmail.com>', // sender address
+                to: `${email};`, // list of receivers
+                subject: `${title}`, // Subject line
+                text: `${body}`, // plain text body
+                html: `<b>${body}</b>` // html body
+            };
+        
+            
+            transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    return console.log(error);
+                }
+                console.log('Message sent: %s', info.messageId);
+              
+                console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+        
+            });
+        });
+})
   
 const PORT = 8080;
 app.listen(PORT, () => console.log(`listening on port: ${PORT} `))

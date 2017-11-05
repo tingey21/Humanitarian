@@ -1,1 +1,1 @@
-select email from newsletter
+select distinct email from emails
