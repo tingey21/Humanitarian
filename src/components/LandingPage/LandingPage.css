@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+
 .page{
     background-color: #fed74f;
-    color: #552f1d;    
+    color: #552f1C;    
     display:flex;
     flex-direction: column;
-    
+    font-family: 'Montserrat', sans-serif;
 }
 .brown{
     height:13px;
@@ -21,7 +23,13 @@
     padding-top: 50px;
     padding-bottom: 50px;
     font-weight: 700;
-    border: solid black 1px;
+   
+}
+.title{
+    font-size: 50px;
+    font-weight:700;
+    padding: 40px;
+    letter-spacing: 10px;
 }
 
 .imgscroller{
@@ -30,3 +38,178 @@
     
 }
 
+.aboutSection{
+    margin: auto;
+    display: flex;
+    height: 200px;
+    width: 940px;
+    font-size: 25px;
+    font-weight: 700;
+    align-items: center;
+    border-bottom: dotted 1px gray;
+    padding-top: 20px;
+}
+.about{
+    width: 470px;
+    
+    font-size: 25px;
+    font-weight: 700;
+}
+#about{
+    font-size: 20px;
+    font-weight: 300;
+}
+.icon{
+    width: 470px;
+}
+.news{
+    margin: auto;
+    display: flex;
+    height: 200px;
+    width: 940px;
+    font-size: 25px;
+    font-weight: 700;
+    align-items: center;
+    border-bottom: dotted 1px gray;
+}
+.email{
+    width: 470px;
+    font-size: 15px;
+    
+}
+.emailContainer{
+    padding-top: 20px;
+    font-size: 15px;
+}
+.inputEmail{
+    width: 274px;
+    height: 40px;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    padding-left: 10px;
+}
+.button{
+    border-radius: 7px;
+    width: 130px;
+    font-weight: 700;
+    margin-left: 10px;
+    height: 40px;
+    color: #be8d2a;
+    outline: none;
+    background-color: #fed74f;
+    border: none;
+    box-shadow: rgb(210, 161, 67) -1px -1px 0px 0px inset, rgb(253, 249, 172) 1px 1px 0px 0px inset;
+    text-align: center;
+    line-height: 38px;
+    letter-spacing: 1px;
+}
+.button:active{
+    box-shadow: rgb(210, 161, 67) 1px 1px 0px 0px inset, rgb(253, 249, 172) -1px -1px 0px 0px inset
+}
+.mission{
+    padding-left: 30px;
+   width: 470px;
+}
+.photoAndStory{
+    margin: auto;
+    display: flex;
+    height: 450px;
+    width: 940px;
+    font-size: 25px;
+    font-weight: 700;
+    align-items: center;
+    border-bottom: dotted 1px gray;
+    
+}
+
+.Image{
+    width: 350px;
+}
+
+.aboutImage{
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    border: 10px solid white;
+}
+.footer{
+    margin: auto;
+    display: flex;
+    height: 100px;
+    width: 940px;
+    align-items: center;
+    justify-content: space-around
+}
+.callToAction{
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    padding-right: 100px;
+}
+.SM{
+    display: flex;
+    justify-content: space-around;
+    width: 240px;
+}
+
+.getInvolvedBtn{
+    display:flex;
+    height: 33px;
+    width: 150px;
+    background-color: #552f1c;    
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 7px;
+    box-shadow: #552f1c -1px -1px 0px 0px inset, rgb(253, 249, 172) 1px 1px 0px 0px inset;
+    cursor: pointer;
+}
+.getInvolvedBtn:active{
+    box-shadow: rgb(210, 161, 67) 1px 1px 0px 0px inset, rgb(253, 249, 172) -1px -1px 0px 0px inset;
+}
+
+.donateBtn{
+    display:flex;
+    height: 33px;
+    width: 150px;
+    background-color: #47d83f;    
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 7px;
+    box-shadow: #47d83f -1px -1px 0px 0px inset, rgb(253, 249, 172) 1px 1px 0px 0px inset;
+   cursor: pointer;
+}
+.donateBtn:active{
+    box-shadow: rgb(210, 161, 67) 1px 1px 0px 0px inset, rgb(253, 249, 172) -1px -1px 0px 0px inset;
+}
+
+.facebookBtn {
+	background: #552f1c;
+	border-radius: 9%;
+	display: block;
+	height: 50px;
+	left: 50%;
+	top: 50%;
+    width: 50px;
+    box-shadow: #552f1c -1px -1px 0px 0px inset, rgb(253, 249, 172) 1px 1px 0px 0px inset;
+     cursor: pointer;
+}
+ 
+.facebookBtn:after {
+	color: #fed74f;
+	content: "f";
+	display: block;
+	font-family: Facebook Letter Faces, Arial;
+	font-size: 50px;
+	font-weight: bold;
+    margin: 6% 0 0 50%; 
+    
+}
+ 
+.facebookBtn:active{
+    box-shadow: rgb(210, 161, 67) 1px 1px 0px 0px inset, rgb(253, 249, 172) -1px -1px 0px 0px inset;
+}

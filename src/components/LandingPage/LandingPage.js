@@ -3,6 +3,7 @@ import './LandingPage.css';
 import {Link} from 'react-router-dom'
 import Carousel from './Carousel'
 import axios from 'axios'
+
 export default class LandingPage extends Component {
     constructor()
     {
@@ -47,6 +48,7 @@ export default class LandingPage extends Component {
       <div className = "page">
          <div className = "brown"></div>
          <div className = "header">
+             
              <div><Link to ={'/WhyUs'} style ={{textDecoration: 'none', color: "#552f1d"}}>Why us </Link></div>
              <div><Link to ={'/MoreWays'} style ={{textDecoration: 'none', color: "#552f1d"}}>More Ways To Help</Link></div>
              <div><Link to ={'/Donate'}style ={{textDecoration: 'none', color: "#552f1d"}}>Donate</Link></div>
@@ -54,40 +56,47 @@ export default class LandingPage extends Component {
              <div><Link to ={'/Resources'} style ={{textDecoration: 'none', color: "#552f1d"}}>Resources</Link></div>
              <div><Link to ={'/Blog'} style ={{textDecoration: 'none', color: "#552f1d"}}>Blog</Link></div>
          </div>
+         <div className = 'title'> THE NON PROFIT</div>
          <div className = "imgscroller">
              <div><Carousel /></div>
              
          </div>
-         <div>
-             <div>about</div>
-             <div>Icon for my non profit</div>
+         <div className = "aboutSection">
+             <div className = 'about'>about: <p id= 'about'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel hendrerit velit. Integer dictum rutrum odio, pulvinar accumsan risus malesuada tempus. </p></div>
+             <div className = 'icon'>Icon for my non profit</div>
          </div>
-         <div className = "news/image">
+         <div className = "news">
              <div className = "email">
-                 <div>text bubble</div>
-                 <div> input</div>
-                 <div> <input type="text" placeholder='email' onChange ={this.handleChange}/>
-                 {console.log(this.state.email)}</div>
-                 <button onClick = {this.handleSubmit}>
+                 
+                 <div > Want amazing stories and Non Profit news in your inbox? Hop on the list!</div>
+                 <div className ='emailContainer' > 
+                     <input className = "inputEmail" type="text" placeholder='your email' onChange ={this.handleChange}/>
+                 {console.log(this.state.email)}
+                 <button onClick = {this.handleSubmit} className = "button">
                      submit
                  </button>
+                 </div>
              </div>
-             <div className = "mission"></div>
+             <div className = "mission">
+                 mission:
+                 <p id= 'about'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel hendrerit velit. Integer dictum rutrum odio, pulvinar accumsan risus malesuada tempus. </p> </div>
          </div>
-         <div>
-             <div className = "Photo">
-                 <div>Photo</div>
+         <div className = 'photoAndStory'>
+             <div className ="Image"><img className = 'aboutImage' src="https://binoandfino.files.wordpress.com/2010/08/cropped-small-698694_85227669-gambian-girl.jpg" alt=""/></div>
+             <div>
+                 <div><img src="http://ricebowls.org/static/img/world-map.png" alt=""/></div>
+                 <div> Title: <p id= 'about'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel hendrerit velit. Integer dictum rutrum odio, pulvinar accumsan risus malesuada tempus. </p></div>
              </div>
-             <div>Map Photo</div>
-             <div>story about founder</div>
          </div>
-         <div>
-             <div>get involved</div>
-             <div>Donate</div>
-             <div>Store</div>
-             <div>facebook</div>
-             <div>insta</div>
-             <div>twitter</div>
+         <div className = 'footer'>
+             <div className ='callToAction'>   
+            <div className ='getInvolvedBtn'>get involved</div>
+             <div className ='donateBtn'>Donate</div>
+             </div> 
+            <div className = 'SM'>
+             <div className ='facebookBtn'></div>
+             
+            </div>
          </div>
         {/* <a href= { process.env.REACT_APP_LOGIN }><button type='button' className = 'loginButton' >LOGIN </button></a> */}
       </div>
