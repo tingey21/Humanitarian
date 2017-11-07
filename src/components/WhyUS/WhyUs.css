@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+
+.whiteBack{
+    width: 590px;
+    background: white;
+    padding: 130px 65px 90px;
+    margin: auto;
+    border-radius: 100px 0px 100px 0px;
+    
+}
+h1{
+    font-size: 30px;
+    text-decoration: underline;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+p{
+    font-size: 20px;
+    margin-bottom: 40px;
+}

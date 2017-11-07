@@ -51,10 +51,10 @@ export default class LandingPage extends Component {
              
              <div><Link to ={'/WhyUs'} style ={{textDecoration: 'none', color: "#552f1d"}}>Why us </Link></div>
              <div><Link to ={'/MoreWays'} style ={{textDecoration: 'none', color: "#552f1d"}}>More Ways To Help</Link></div>
-             <div><Link to ={'/Donate'}style ={{textDecoration: 'none', color: "#552f1d"}}>Donate</Link></div>
              <div><Link to ={'/GetInvolved'} style ={{textDecoration: 'none', color: "#552f1d"}}>Get involved</Link></div>
              <div><Link to ={'/Resources'} style ={{textDecoration: 'none', color: "#552f1d"}}>Resources</Link></div>
              <div><Link to ={'/Blog'} style ={{textDecoration: 'none', color: "#552f1d"}}>Blog</Link></div>
+             <Link to ={'/Donate'}style ={{textDecoration: 'none', color: "#552f1d"}}><div className ='donate' >Donate</div></Link>
          </div>
          <div className = 'title'> THE NON PROFIT</div>
          <div className = "imgscroller">
@@ -90,11 +90,11 @@ export default class LandingPage extends Component {
          </div>
          <div className = 'footer'>
              <div className ='callToAction'>   
-            <div className ='getInvolvedBtn'>get involved</div>
-             <div className ='donateBtn'>Donate</div>
+             <Link to ={'/GetInvolved'} style ={{textDecoration: 'none', color: "#552f1d"}}><div className ='getInvolvedBtn'>get involved</div></Link>
+            <Link to ={'/Donate'}style ={{textDecoration: 'none', color: "#552f1d"}}><div className ='donateBtn' >Donate</div></Link> 
              </div> 
             <div className = 'SM'>
-             <div className ='facebookBtn'></div>
+            <a href="https://www.facebook.com/NonProfit40/"><div className ='facebookBtn'></div></a>
              
             </div>
          </div>
