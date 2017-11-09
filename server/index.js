@@ -6,8 +6,8 @@ const bodyParser = require("body-parser")
     , Auth0Strategy = require('passport-auth0')
     , massive = require("massive")
     , stripe = require("stripe")(process.env.REACT_APP_STRIPESK)
-    , nodemailer = require('nodemailer');
-    
+    , nodemailer = require('nodemailer')
+    , path = require('path');
 const app = express();
 app.use( express.static( `${__dirname}/../build` ) );
 
@@ -293,7 +293,7 @@ app.post('/api/sendNewsLetter', (req,res) => {
     }})
 
     
-    const path = require('path')
+    
     app.get('*', (req, res)=>{
       res.sendFile(path.join(__dirname, '../build/index.html'));
     })
