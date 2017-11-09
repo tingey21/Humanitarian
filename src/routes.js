@@ -6,13 +6,13 @@ import WhyUs from './components/WhyUS/WhyUs'
 import Blog from './components/Blog/Blog'
 import MoreWays from './components/GetInvolved/moreWays/MoreWays'
 import GetInvolved from './components/GetInvolved/GetInvolved.js'
-import Resources from './components/Resources/Resources'
 import AdminBlog from './components/Admin/AdminBlog/AdminBlog'
 import AddBlog from './components/Admin/AdminBlog/AddBlog'
 import AdminLandingPage from './components/Admin/AdminLandingPage/AdminLandingPage'
 import AdminGetInvolved from './components/Admin/AdminGetInvolved/AdminGetInvolved'
 import AddGetInvolved from './components/Admin/AdminGetInvolved/AddGetInvolved'
 import Newsletter from './components/Admin/Newsletter/Newsletter'
+import Authenticate from './components/Admin/Authenticate'
 export default class Routes extends Component {
   render() {
     return (
@@ -26,13 +26,12 @@ export default class Routes extends Component {
                 <Route path = '/Blog' component= {Blog} />
                 <Route path = '/MoreWays' component = {MoreWays} />
                 <Route path = '/GetInvolved' component = {GetInvolved} />
-                <Route path = '/Resources' component = {Resources} />
                 <Route path = '/admin/Blog/Add' component = {AddBlog} />
                 <Route path = '/admin/Blog' component = {AdminBlog} />
                 <Route path = '/admin/GetInvolved/Add' component = {AddGetInvolved}/>
                 <Route path = '/admin/GetInvolved' component = {AdminGetInvolved} />
                 <Route path = '/admin/newsletter' component = {Newsletter} />
-
+                <Route path = '/dsaflkhflkddaflhfdlkhihqiwehi' component= {Authenticate} />
                 <Route path = "/admin" component = {AdminLandingPage}/>
             </Switch>
         </Router>

@@ -14,6 +14,7 @@ export default class AdminGetInvolved extends Component {
   }
 
 componentWillMount(){
+  
   axios.get('/api/getAllOpp').then((resp) => this.setState({
     volunteer: resp.data
   })
@@ -25,65 +26,65 @@ removeOppPost(id){
     var body = {
       id: id
     }
-    axios.post('/api/deleteOpp', body)
+    axios.post('/api/deleteOpp', body).catch(alert("You Need To login First"));
    
     axios.get('/api/getAllOpp').then(resp => this.setState({
       volunteer: resp.data
-    }))
+    })).catch(alert("You Need To login First"));
   }
-  
   filterOverseas(){
     
-    this.setState({
-      filterOverseas: !this.state.filterOverseas
-    })  
-    if(this.state.filterOverseas){
+    
+      
       axios.get('/api/getLocalOpp').then(resp => this.setState({
         volunteer: resp.data
       }))}
-    else{axios.get('/api/getAllOpp').then(resp => this.setState({
-      volunteer: resp.data
-    }))}
-  }
+    
+  
 
   filterLocal(){
     
-    this.setState({
-      filterLocal: !this.state.filterLocal
-    })  
-    if(this.state.filterLocal){
+   
       axios.get('/api/getOverseasOpp').then(resp => this.setState({
         volunteer: resp.data
       }))}
-    else{axios.get('/api/getAllOpp').then(resp => this.setState({
+   
+  filterNone(){
+    axios.get('/api/getAllOpp').then(resp => this.setState({
       volunteer: resp.data
     }))}
-  }
-
 render() {
 
   if(this.state.volunteer){
-    console.log( this.state.volunteer)
+    console.log( 'this is right here' + this.state.volunteer)
   var oppurtunity = this.state.volunteer.map((card, i) =>{
     if(i%2===0){
       return(
-      <div>
-        <div><button onClick={() =>this.removeOppPost(card.id)}> x</button></div>
-        <div>{card.volunteername}</div>
-        <div>
-            <div>{card.volunteerdetails}</div>
-            <div><a href={card.link}>link text</a></div>
+      <div className = 'container'>
+          <div className = 'vContainer'>
+          <div><button className = 'removeVolunteer' onClick={() =>this.removeOppPost(card.id)}> x</button></div>
+            <div className = 'vTitle'>{card.volunteername}</div>
+            <div className = 'vDetails'>{card.volunteerdetails}</div>
+          </div>
+          <div className = 'imageWrapper'>
+          <div className = 'roundImage'><img className='vimage' src={card.photo} alt=""/></div>
+          </div>
         </div>
-      </div>
       )
     } else{
       return(
-        <div>
-          <div>{card.volunteername}</div>
-          <div>
-            <div><a href={card.link}>link text</a></div>
-            <div>{card.volunteerdetails}</div>
+        <div className = 'container'>
+            <div className = 'imageWrapper'>
+            
+          <div className = 'roundImage'><img className='vimage' src={card.photo} alt=""/></div>
           </div>
+          <div className = 'vContainer'>
+          <div><button className = 'removeVolunteer' onClick={() =>this.removeOppPost(card.id)}> x</button></div>
+            <div className = 'vTitle'>
+            {card.volunteername}</div>
+            <div className = 'vDetails'>{card.volunteerdetails}</div>
+          </div>
+          
         </div>
       )
     }
@@ -91,12 +92,18 @@ render() {
 } 
 
   return (
-    <div>
-      
+    <div className = "page">
+      <div className = "brown"></div>
        <Link to ={'/admin/getinvolved/Add'} style ={{textDecoration: 'none', color: "#552f1d"}}>
-      <div>+ Add Volunteer options</div>
+      <div className = "addNewBlog" >+ Add Volunteer options</div>
       </Link> 
+      <div className = 'buttonContainer'>  <button className ='usa' id = 'shadow' onClick={() =>this.filterOverseas()}></button>
+      <button  className = 'plane'  id = 'shadow' onClick={() =>this.filterLocal()}> </button>
+      <button  className = 'globe'  id = 'shadow' onClick={() =>this.filterNone()}></button>
+      </div>
+         <div className = 'vWrapper'>
       <div>{oppurtunity}</div>
+      </div>
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Resources extends Component {
+export default class Authenticate extends Component {
   render() {
     return (
       <div>
-        Resources
+        
       </div>
     )
   }

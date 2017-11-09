@@ -58,6 +58,7 @@ passport.serializeUser( function(id, done){
     done(null, id)
 })
 passport.deserializeUser( function(id, done){
+
    app.get('db').find_session_user([id]).then((user) =>{
     done(null, user[0]);
     }
@@ -66,7 +67,7 @@ passport.deserializeUser( function(id, done){
 })
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/Donate',
+    successRedirect: 'http://localhost:3000/admin',
     failureRedirect:'/auth'
 }))
 
@@ -87,41 +88,55 @@ app.get('/auth/logout', (req, res) => {
 /////////////////Blog End points ////////////////////
 
 app.post('/api/addBlog', (req, res ) =>{
+
+  if(req.user){
     const db = app.get('db');
-    const { title, blog, author} = req.body;
-    console.log(title,blog,author)
-    db.create_blog_post([title,blog,author]).then(res.status(200))
-})
+    const { title, blog, author, imageUrl} = req.body;
+    console.log(title,blog,author, imageUrl)
+    db.create_blog_post([title,blog,author, imageUrl]).then(res.status(200))
+}else{
+    return res.status(401).send('need to log in!')
+}}  )
 
 app.get('/api/getBlogs', (req,res) => {
+    console.log(req.user)
     const db = app.get('db');
     db.get_all_blogs().then((posts) => res.send(posts))
 })
 
 app.post('/api/deleteBlog', (req,res) => {
+    if(req.user){       
     const db = app.get('db');
     console.log(req.body.id)
     
     db.remove_blog_by_id([req.body.id])
-})
+}else{
+    return res.status(401).send('need to log in!')
+}})
 
 app.get('/api/getAllOpp', (req, res) => {
     const db = app.get('db');
     db.get_all_volunteer().then((options) => res.send(options))
 })
 app.post('/api/addvolunteer', (req, res ) =>{
+    if(req.user){
     const db = app.get('db');
     console.log(req.body);
-    const { title, details, link, overseas} = req.body;
+    const { title, details, link, overseas, image} = req.body;
     // console.log(title,blog,author)
-    db.create_volunteer_post([title,details,link, overseas]).then(res.status(200))
-})
+    db.create_volunteer_post([title,details,link,image, overseas ]).then(res.status(200))
+}else{
+    return res.status(401).send('need to log in!')
+}})
 app.post('/api/deleteOpp', (req,res) => {
+    if(req.user){
     const db = app.get('db');
     console.log(req.body.id)
     
     db.remove_opp_by_id([req.body.id])
-})
+}else{
+    return res.status(401).send('need to log in!')
+}})
 
 app.get('/api/getOverseasOpp', (req,res) =>{
     const db = app.get('db')
@@ -223,14 +238,19 @@ nodemailer.createTestAccount((err, account) => {
 
 
 app.get('/api/getAllEmails', (req, res) => {
+    if(req.user){
     const db = app.get('db')
     db.get_all_emails().then((resp) => {
         
         res.send(resp)})
 
-})
+}else{
+    return res.status(401).send('need to log in!')
+}})
 
 app.post('/api/sendNewsLetter', (req,res) => {
+    if(req.user){
+        
     const {email} = req.body[0]
     const {title, body} = req.body[1]
 
@@ -267,7 +287,9 @@ app.post('/api/sendNewsLetter', (req,res) => {
         
             });
         });
-})
+    }else{
+        return res.status(401).send('need to log in!')
+    }})
   
 const PORT = 8080;
 app.listen(PORT, () => console.log(`listening on port: ${PORT} `))

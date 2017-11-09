@@ -1,2 +1,2 @@
-insert into blogposts (title, blog, author)
-values ($1, $2, $3);
+insert into blogposts (title, blog, author, photo)
+values ($1, $2, $3, $4);

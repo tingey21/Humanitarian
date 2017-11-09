@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Finger+Paint');
+
+
+.blogContainer{
+    border-bottom: rgba(128, 128, 128, 0.712) 1px solid;
+    
+}
+
+
+.blogTitle{
+    font-size: 50px;
+    font-weight: 700;
+    height: 100px;
+    font-family: 'Finger Paint', cursive;
+    letter-spacing: 2px;
+}
+.blogPost{
+    display: flex;
+    flex-wrap: wrap;
+}
+.blogAuthor{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+.wordwrap{
+    word-wrap: break-word;
+    text-align: left;
+}
