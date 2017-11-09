@@ -291,6 +291,12 @@ app.post('/api/sendNewsLetter', (req,res) => {
     }else{
         return res.status(401).send('need to log in!')
     }})
-  
+
+    
+    const path = require('path')
+    app.get('*', (req, res)=>{
+      res.sendFile(path.join(__dirname, '../build/index.html'));
+    })
+
 const PORT = 8080;
 app.listen(PORT, () => console.log(`listening on port: ${PORT} `))
