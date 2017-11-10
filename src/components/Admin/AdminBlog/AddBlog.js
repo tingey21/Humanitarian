@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import Dropzone  from 'react-dropzone'
+import './AddBlog.css'
 export default class AddBlog extends Component {
     constructor(){
         super()
@@ -79,15 +80,13 @@ export default class AddBlog extends Component {
   render() {
       
     return (
-      <div>
-          
-        <input className = 'title' placeholder ="title"     
-        onChange={this.handleTitle}/>
-        
-        <input className = 'blog' placeholder = "add blog here"
-        onChange ={this.handleBlog} />
-        <input className = 'author' placeholder ='author name yo'
-        onChange={this.handleAuthor}/>
+      
+      <div className = "page" id = 'filler'>
+      
+          <div className = 'whiteBack'>
+       <div className = 'aTitleWrapper'> <input className = 'aTitle' placeholder ="title"     
+        onChange={this.handleTitle}/> </div>
+        <div>
         <Dropzone className = 'dropzone'
           onDrop = {this.handleDrop}
           multiple
@@ -95,10 +94,20 @@ export default class AddBlog extends Component {
           
           >
           <p>drag and drop photos</p> 
-          </Dropzone>
-          <img src={this.state.imageURL} alt=""/>
-        <button className='btn' value = "submit" onClick={this.handleSubmit}>Submit</button>
-        
+          </Dropzone></div>
+          
+        <div className = 'blogImage'><img src={this.state.imageURL} alt=""/></div>
+        <div className = 'aBlogWrapper'> <textarea className = 'aBlog' placeholder = "Add blog here"
+        onChange ={this.handleBlog} />  </div>
+        <div className = ''><input className = 'aAuthor' placeholder ='Add author name'
+        onChange={this.handleAuthor}/> </div>
+       
+          <div> <button className='btn' value = "submit" onClick={this.handleSubmit}>Submit</button></div>
+          <div className = 'filler'>
+            
+          </div>
+          </div>
+          
       </div>
     
     )

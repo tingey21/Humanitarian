@@ -2,6 +2,7 @@
 
 .page{
     background-color: #fed74f;
+    
     color: #552f1C;    
     display:flex;
     flex-direction: column;
@@ -257,7 +258,7 @@
     display:flex;
     height: 33px;
     width: 150px;
-    background-color: #47d83f;    
+    background-color: #0dc500;      
     color: white;
     justify-content: center;
     align-items: center;
@@ -296,3 +297,4 @@
 .facebookBtn:active{
     box-shadow: rgb(210, 161, 67) 1px 1px 0px 0px inset, rgb(253, 249, 172) -1px -1px 0px 0px inset;
 }
+

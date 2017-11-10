@@ -4,7 +4,6 @@ import LandingPage from './components/LandingPage/LandingPage'
 import Donate from './components/Donate/Donate'
 import WhyUs from './components/WhyUS/WhyUs'
 import Blog from './components/Blog/Blog'
-import MoreWays from './components/GetInvolved/moreWays/MoreWays'
 import GetInvolved from './components/GetInvolved/GetInvolved.js'
 import AdminBlog from './components/Admin/AdminBlog/AdminBlog'
 import AddBlog from './components/Admin/AdminBlog/AddBlog'
@@ -24,7 +23,6 @@ export default class Routes extends Component {
                 <Route path = '/Donate' component = {Donate} />
                 <Route path = '/WhyUs' component = {WhyUs} />
                 <Route path = '/Blog' component= {Blog} />
-                <Route path = '/MoreWays' component = {MoreWays} />
                 <Route path = '/GetInvolved' component = {GetInvolved} />
                 <Route path = '/admin/Blog/Add' component = {AddBlog} />
                 <Route path = '/admin/Blog' component = {AdminBlog} />

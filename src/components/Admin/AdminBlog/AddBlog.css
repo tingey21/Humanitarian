@@ -1,0 +1,23 @@
+.aTitle{
+    font-size: 50px;
+    font-weight: 700;
+    height: 100px;
+    font-family: 'Finger Paint', cursive;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.aBlog{
+    font-size: 20px;
+    margin-bottom: 40px;
+    overflow-wrap: break-word;
+    height: 1000px;
+    width: 600px;
+    
+}
+#filler{
+    padding: 100px 0px;
+}
+
+.dropzone{
+    cursor: pointer;
+}

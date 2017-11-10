@@ -22,7 +22,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 massive(process.env.CONNECTION_STRING).then((db) => {
-    console.log(process.env.CONNECTION_STRING)
+    console.log("server connected")
     app.set('db', db)
 })
 
@@ -91,6 +91,7 @@ app.get('/auth/logout', (req, res) => {
 app.post('/api/addBlog', (req, res ) =>{
 
   if(req.user){
+      console.log(req.user);
     const db = app.get('db');
     const { title, blog, author, imageUrl} = req.body;
     console.log(title,blog,author, imageUrl)

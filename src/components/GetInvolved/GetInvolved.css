@@ -17,6 +17,8 @@
 .globe{
     
     background: url('./../logo/globeIcon.png') no-repeat center;
+    background-size: 800px;
+    
     
 }
 .plane{
@@ -42,17 +44,16 @@
 }
 
 .container{
+    background: white;
+    border-radius: 50px 0px 50px 0px;
     
-    border-radius: 9px;
-    box-shadow: #f3c83a -3px -3px 0px 0px inset, rgb(253, 249, 172) 3px 3px 0px 0px inset;
     margin-bottom: 40px;
     height: 180px;
     width: 590px;
     display: flex;
-    cursor: pointer;
+    
 }
 .container:active{
-    box-shadow: #f3c83a 3px 3px 0px 0px inset, rgb(253, 249, 172) -3px -3px 0px 0px inset;
 }
 .vContainer{
     
@@ -69,7 +70,7 @@
 }
 .vDetails{
     display: flex;
-    font-size: 25px;
+    font-size: 15px;
     height: 50px;
     font-weight: 300;
     justify-content: center;
@@ -105,4 +106,22 @@
     background: transparent;
     border: none;
     cursor: pointer;
+}
+.vLink{
+    background: #5881AB;
+    height: 25px;
+    width: 105px;
+    margin: auto;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    border:none;
+    
+}
+
+.vLink:active{
+    box-shadow: rgb(216, 39, 216) -2px -2px 0px 0px inset, rgb(65, 0, 65) 2px 2px 0px 0px inset;
 }

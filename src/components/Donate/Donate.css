@@ -1,0 +1,43 @@
+.donationImage{
+    width: 100%;
+    height: 550px;
+    background: url('./africa.jpg') no-repeat;
+    background-size: 100%;
+    background-position: center top;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.goal{
+    width: 100%;
+    height: 300px;
+}
+
+.brownFont{
+   font-size: 40px;
+   font-weight: 700;
+   margin-top: 100px;
+}
+.btn-primary{
+    outline: none;
+    background: rgb(146, 146, 146);
+    border-radius: 10px;
+    width: 300px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 700;    
+}
+.whiteFont{
+    
+    font-weight: 700;
+    margin-top: 75px;
+}
+#donateTitle{
+    font-size: 50px;
+    color: white;
+}
+#donateTextWrapper{
+    margin: auto;
+    width: 940px;
+    
+}
