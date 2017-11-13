@@ -3,11 +3,15 @@ import {Link} from 'react-router-dom'
 import logo from '../../logo/logo.jpg'
 import axios from 'axios'
 import './AdminLandingPage.css'
+import {browserHistory} from 'react-router-dom'
 export default class LandingPage extends Component {
   //         <Route path = '/admin/Blog' component = {AdminBlog} />
  //  <Route path = '/admin/GetInvolved' component = {AdminGetInvolved} />
  componentWillMount(){
-  axios.get('/auth/me').then(res => console.log(res.data));
+   console.log('here')
+  axios.get('/auth/me').then(res => console.log(res.data)).catch( () => {
+    this.props.history.push('/401')
+  });
  } 
 
   render() {

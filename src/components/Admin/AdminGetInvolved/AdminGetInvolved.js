@@ -15,7 +15,9 @@ export default class AdminGetInvolved extends Component {
   }
 
 componentWillMount(){
-  
+  axios.get('/auth/me').then(res => console.log(res.data)).catch( () => {
+    this.props.history.push('/401')
+  });
   axios.get('/api/getAllOpp').then((resp) => this.setState({
     volunteer: resp.data
   })

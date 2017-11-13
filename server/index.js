@@ -98,7 +98,7 @@ app.post('/api/addBlog', (req, res ) =>{
     db.create_blog_post([title,blog,author, imageUrl]).then(res.status(200))
     
 }else{
-    return res.status(401).send('need to log in!')
+    return res.redirect('localhost:3000/401')
 }}  )
 
 app.get('/api/getBlogs', (req,res) => {

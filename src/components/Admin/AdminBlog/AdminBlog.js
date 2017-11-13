@@ -15,6 +15,9 @@ export default class AdminBlog extends Component {
   }
 
   componentWillMount(){
+    axios.get('/auth/me').then(res => console.log(res.data)).catch( () => {
+      this.props.history.push('/401')
+    });
     axios.get('/api/getBlogs').then(resp => this.setState({
       blogs: resp.data
     }))

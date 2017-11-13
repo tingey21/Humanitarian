@@ -12,6 +12,7 @@ import AdminGetInvolved from './components/Admin/AdminGetInvolved/AdminGetInvolv
 import AddGetInvolved from './components/Admin/AdminGetInvolved/AddGetInvolved'
 import Newsletter from './components/Admin/Newsletter/Newsletter'
 import Authenticate from './components/Admin/Authenticate'
+import Four01 from './components/401/Four01'
 export default class Routes extends Component {
   render() {
     return (
@@ -31,6 +32,7 @@ export default class Routes extends Component {
                 <Route path = '/admin/newsletter' component = {Newsletter} />
                 <Route path = '/dsaflkhflkddaflhfdlkhihqiwehi' component= {Authenticate} />
                 <Route path = "/admin" component = {AdminLandingPage}/>
+                <Route path = "/401" component = {Four01} />
             </Switch>
         </Router>
       </div>

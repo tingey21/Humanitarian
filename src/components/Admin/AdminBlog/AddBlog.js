@@ -20,9 +20,17 @@ export default class AddBlog extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+
+    componentWillMount(){
+        console.log('here')
+       axios.get('/auth/me').then(res => console.log(res.data)).catch( () => {
+         this.props.history.push('/401')
+       });
+      } 
+
     handleSubmit(e){
         e.preventDefault()
-
+        
    var blog = {
        title: this.state.title,
        blog: this.state.blogPost,

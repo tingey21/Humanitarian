@@ -18,6 +18,9 @@ export default class Newsletter extends Component {
   
 
     componentWillMount(){
+      axios.get('/auth/me').then(res => console.log(res.data)).catch( () => {
+        this.props.history.push('/401')
+      });
        axios.get( '/api/getAllEmails')
        .then( (resp) => {this.setState({
            emails: resp.data

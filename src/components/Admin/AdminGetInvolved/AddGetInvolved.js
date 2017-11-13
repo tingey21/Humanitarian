@@ -21,7 +21,12 @@ export default class AddGetInvolved extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
+  componentWillMount(){
+    console.log('here')
+   axios.get('/auth/me').then(res => console.log(res.data)).catch( () => {
+     this.props.history.push('/401')
+   });
+  } 
 
 
       handleTitle(e){
