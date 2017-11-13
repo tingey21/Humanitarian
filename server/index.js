@@ -96,6 +96,7 @@ app.post('/api/addBlog', (req, res ) =>{
     const { title, blog, author, imageUrl} = req.body;
     console.log(title,blog,author, imageUrl)
     db.create_blog_post([title,blog,author, imageUrl]).then(res.status(200))
+    
 }else{
     return res.status(401).send('need to log in!')
 }}  )

@@ -31,7 +31,7 @@ removeBlogPost(id){
   })
   axios.get('/api/getBlogs').then(resp => this.setState({
     blogs: resp.data
-  })).catch(alert("You Need To login First"));
+  }));
 }
 
 
@@ -54,7 +54,7 @@ removeBlogPost(id){
           
         
          <p className = "wordwrap">
-         <img className = 'blogImage' src={blog.photo} ALIGN ='right'/>  {blog.blog}</p>
+         <img className = 'blogImage' src={blog.photo} align ='right'/>  {blog.blog}</p>
         </div>
         <div className = 'blogAuthor'>
           <h3>written by: {blog.author}</h3>

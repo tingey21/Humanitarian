@@ -1,0 +1,14 @@
+.gmailClone{
+    margin: auto;
+    width: 75%;
+    height: 1000px;
+}
+.subject{
+    width: 100%;
+    height: 50px;
+
+}
+.body{
+    width: 100%;
+    height: 830px;
+}

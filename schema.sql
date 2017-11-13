@@ -17,7 +17,7 @@ create table blogposts(
 create table voptions(
     id serial primary key not null,
     volunteername varchar(255) not null,
-    volunteerdetails varchar(255) not null,
+    volunteerdetails text not null,
     link varchar(300),
     photo varchar(300),
     overseas boolean 

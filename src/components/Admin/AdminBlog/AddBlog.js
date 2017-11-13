@@ -31,7 +31,7 @@ export default class AddBlog extends Component {
    }
        
         console.log(blog)
-        axios.post('/api/addBlog', blog).catch(alert("You Need To login First"));
+        axios.post('/api/addBlog', blog);
 
         this.props.history.push('/Admin/blog')
     }

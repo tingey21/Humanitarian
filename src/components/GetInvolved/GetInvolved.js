@@ -56,7 +56,7 @@ componentWillMount(){
           <div className = 'vContainer'>
             <div className = 'vTitle'>{card.volunteername}</div>
             <div className = 'vDetails'>{card.volunteerdetails}</div>
-            <div className = 'vLink'><a href={card.Link}>Volunteer!</a> </div>
+            <div className = 'vLink'><a style ={{textDecoration: 'none', color: "#ffff"}} href={card.link} >Volunteer!</a> </div>
           </div>
           <div className = 'imageWrapper'>
           <div className = 'roundImage'><img className='vimage' src={card.photo} alt=""/></div>

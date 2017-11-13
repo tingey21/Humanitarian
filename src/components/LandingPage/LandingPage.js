@@ -14,7 +14,9 @@ export default class LandingPage extends Component {
 
         this.state = ({
             email: 'a',
-            inputEmail: true
+            inputEmail: true,
+            handleCorrect: false,
+            send: true
         })
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +24,8 @@ export default class LandingPage extends Component {
 
     handleChange(e){
         this.setState({
-            email: e.target.value
+            email: e.target.value,
+            send: true
         })
         console.log(this.state.email)
     }
@@ -32,20 +35,23 @@ export default class LandingPage extends Component {
             email: this.state.email
         }
         var arr =emailToUse.email.split('@');
-        this.setState({inputEmail: true})
+        this.setState({inputEmail: true, handleCorrect: false})
         
     axios.get(`https://api.mailtest.in/v1/${arr[1]}`).then((resp) =>{ console.log(resp.data.status)
     
-        if(resp.data.status == 'ACTIVE'){
+        if(resp.data.status == 'ACTIVE' && this.state.send){
             axios.post('/api/addEmail', emailToUse)
             this.setState({
-                inputEmail: true
+                inputEmail: true,
+                handleCorrect: true,
+                send: false
             })
         }
         else{
             console.log('type in a real domain stupid idiot')
             this.setState({
-                inputEmail: false
+                inputEmail: false,
+                handleCorrect: false
             })
         }
 })
@@ -81,8 +87,8 @@ export default class LandingPage extends Component {
                  
                  <div > Want amazing stories and Non Profit news in your inbox? Hop on the list!</div>
                  <div className ='emailContainer' > 
-                     <input className = {this.state.inputEmail ? 'inputEmail' : 'inputfalse'} type="text" placeholder={'your email'} onChange ={this.handleChange}/>
-                 {console.log(this.state.email)}
+                     <input className = {this.state.inputEmail ? 'inputEmail' : 'inputfalse'} id ={this.state.handleCorrect ? 'greenlight' : ''} type="text" placeholder={'your email'} onChange ={this.handleChange}/>
+                 {console.log( )}
                  <button onClick = {this.handleSubmit} className = "button">
                      submit
                  </button>

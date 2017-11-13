@@ -27,11 +27,11 @@ removeOppPost(id){
     var body = {
       id: id
     }
-    axios.post('/api/deleteOpp', body).catch(alert("You Need To login First"));
+    axios.post('/api/deleteOpp', body);
    
     axios.get('/api/getAllOpp').then(resp => this.setState({
       volunteer: resp.data
-    })).catch(alert("You Need To login First"));
+    }));
   }
   filterOverseas(){
     

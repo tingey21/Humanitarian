@@ -63,9 +63,11 @@ export default class Newsletter extends Component {
         <div><Link to ={'/admin/GetInvolved'} style ={{textDecoration: 'none', color: "#552f1d"}}>Get Involved</Link></div>
         
       </div>
-        <div><input type="text" placeholder ='subject' onChange = {this.handleTitle}/></div>
-        <div><input type="text" placeholder ='body' onChange = {this.handleBody}/></div>
-        <div><button onClick = {this.handleClick}></button></div>
+      <div className ='gmailClone'>
+        <div ><input className = "subject" type="text" placeholder ='subject' onChange = {this.handleTitle}/></div>
+        <div ><textarea className = 'body' type="text"  onChange = {this.handleBody}/></div>
+        <div ><button className = "button" onClick = {this.handleClick}>Submit</button></div>
+        </div>
       </div>
     )
   }

@@ -50,7 +50,7 @@ export default class AddGetInvolved extends Component {
  }
      
       console.log(volunteer)
-      axios.post('/api/addVolunteer', volunteer).catch(alert("You Need To login First"));
+      axios.post('/api/addVolunteer', volunteer);
 
       this.props.history.push('/Admin/getinvolved')
   }
@@ -86,24 +86,38 @@ export default class AddGetInvolved extends Component {
 
   render(){
 
+
     return(
-      <div>
-        <input type="text" placeholder='title' onChange={this.handleTitle}/>
-        <input type="text" placeholder='descripition' onChange={this.handleDetails}/>
-        <input type="text" placeholder ='hyperlink' onChange={this.handleLink}/>
-        <input type="checkbox" placeholder = 'overseas?' defaultChecked={this.state.overseas} onChange={this.handleCheck}/>
-        {console.log(this.state.overseas)}
-        <Dropzone className = 'dropzone'
+
+<div className = "page" id = "filler2">
+<div className = 'vWrapper'>
+    <div className = 'container'>
+    
+    <div className = 'vContainer' >
+   
+      <div  id = 'vATitle'><input type="text" placeholder='title' onChange={this.handleTitle}/></div>
+      <div className = 'vDetails'><textarea type="text" placeholder='descripition' onChange={this.handleDetails}/></div>
+      <div ><input type="text" placeholder ='hyperlink' onChange={this.handleLink}/></div>
+      <div>  <input type="checkbox" placeholder = 'overseas?' defaultChecked={this.state.overseas} onChange={this.handleCheck}/> overseas?</div>
+    </div>
+
+    <div className = 'imageWrapper'>
+    <div className = 'roundImage'> <Dropzone className = 'dropzone'
           onDrop = {this.handleDrop}
           multiple
           accept='image/*'
           
           >
           <p>drag and drop photos</p> 
-          </Dropzone>
-        <button className='btn' value = "submit" onClick={this.handleSubmit}>Submit</button>
-        <img src={this.state.imageURL} alt=""/>
+          </Dropzone></div>
       </div>
+      <button className='button' value = "submit" onClick={this.handleSubmit}>Submit</button>
+      </div></div>
+      </div>
+
+
+
+      
     )
   }
     

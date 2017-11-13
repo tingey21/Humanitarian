@@ -21,7 +21,7 @@ export default class LandingPage extends Component {
         <div><Link to ={'/admin/GetInvolved'} style ={{textDecoration: 'none', color: "#552f1d"}}>Get Involved</Link></div>
         
       </div>
-      {/* <a href= { process.env.REACT_APP_LOGIN }><button type='button' className = 'loginButton' >LOGIN </button></a> */}
+      
         <a href='http://localhost:8080/auth/logout'><button>Log out</button></a>
       </div>
     )
