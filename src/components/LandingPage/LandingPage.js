@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import './reset.css';
 import './LandingPage.css';
-
+import Header from './header'
 import Carousel from './Carousel'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import  header from './websitelogo.jpg'
-import logo from '../logo/logo.jpg'
-
+import logo from '../logo/logo.png'
+import menu from '../logo/menu.svg'
 export default class LandingPage extends Component {
     constructor()
     {
@@ -16,18 +17,22 @@ export default class LandingPage extends Component {
             email: 'a',
             inputEmail: true,
             handleCorrect: false,
-            send: true
+            send: true,
+            showHeader: false
         })
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+
+
 
     handleChange(e){
         this.setState({
             email: e.target.value,
             send: true
         })
-        console.log(this.state.email)
+        
     }
 
     handleSubmit(){
@@ -39,7 +44,7 @@ export default class LandingPage extends Component {
         
     axios.get(`https://api.mailtest.in/v1/${arr[1]}`).then((resp) =>{ console.log(resp.data.status)
     
-        if(resp.data.status == 'ACTIVE' && this.state.send){
+        if(resp.data.status === 'ACTIVE' && this.state.send){
             axios.post('/api/addEmail', emailToUse)
             this.setState({
                 inputEmail: true,
@@ -48,7 +53,7 @@ export default class LandingPage extends Component {
             })
         }
         else{
-            console.log('type in a real domain stupid idiot')
+            console.log('Error')
             this.setState({
                 inputEmail: false,
                 handleCorrect: false
@@ -60,27 +65,34 @@ export default class LandingPage extends Component {
 
   render() {
     return (
-        //div+div>div*6^div>div*2^div>div>div*3^div^div>div>div^div*2^div>div*6
+        
+        //
       
       <div className = "page">
+      
          <div className = "brown"></div>
          
          <div className = "header">
+         
+     <Link to ={'/WhyUs'} style ={{textDecoration: 'none', color: "#ffff"}}>  <div className = 'headerLink'>  Why us</div></Link>
+     <Link to ={'/GetInvolved'} style ={{textDecoration: 'none', color: "#ffff"}}><div className = 'headerLink'>Get involved</div></Link>
+         <Link to ={'/'} style ={{textDecoration: 'none', color: "#ffff"}}> <div className ='clickableLogo'><img className ='iconImage'src={logo} alt="home"/></div></Link>
+         <Link to ={'/Blog'} style ={{textDecoration: 'none', color: "#ffff"}}> <div className = 'headerLink'>Blog</div></Link>
+         <Link to ={'/Donate'}style ={{textDecoration: 'none', color: "#ffff"}}><div className = 'headerLink' >Donate</div></Link>
+     </div>
+
+     <div className = "hamburger">
              
-         <Link to ={'/WhyUs'} style ={{textDecoration: 'none', color: "#552f1d"}}>  <div className = 'headerLink'>  Why us</div></Link>
-         <Link to ={'/GetInvolved'} style ={{textDecoration: 'none', color: "#552f1d"}}><div className = 'headerLink'>Get involved</div></Link>
-             <Link to ={'/'} style ={{textDecoration: 'none', color: "#552f1d"}}> <div className ='clickableLogo'><img className ='iconImage'src={logo} alt=""/></div></Link>
-             <Link to ={'/Blog'} style ={{textDecoration: 'none', color: "#552f1d"}}> <div className = 'headerLink'>Blog</div></Link>
-             <Link to ={'/Donate'}style ={{textDecoration: 'none', color: "#552f1d"}}><div className = 'headerLink' >Donate</div></Link>
+             <Header />
          </div>
          <div className = 'title'> THE NON PROFIT</div>
          <div className = "imgscroller">
-             <div><Carousel /></div>
+             <div className = "stuff"><Carousel  /></div>
              
          </div>
          <div className = "aboutSection">
              <div className = 'about'>about: <p id= 'about'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel hendrerit velit. Integer dictum rutrum odio, pulvinar accumsan risus malesuada tempus. </p></div>
-             <div className = 'icon'><img className ='iconImage' src={header} alt=""/></div>
+             <div className = 'icon'><img className ='iconImage' src={header} alt="the Non profit Logo"/></div>
          </div>
          <div className = "news">
              <div className = "email">
@@ -96,13 +108,13 @@ export default class LandingPage extends Component {
              </div>
              <div className = "mission">
                  mission:
-                 <p id= 'about'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel hendrerit velit. Integer dictum rutrum odio, pulvinar accumsan risus malesuada tempus. </p> </div>
+                 <p id= 'about'>Since the world has existed, there has been injustice. But it is one world, the more so as it becomes smaller, more accessible. There is just no question that there is more obligation that those who have should give to those who have nothing.” </p> </div>
          </div>
          <div className = 'photoAndStory'>
              <div className ="Image"><img className = 'aboutImage' src="https://binoandfino.files.wordpress.com/2010/08/cropped-small-698694_85227669-gambian-girl.jpg" alt=""/></div>
-             <div>
-                 <div><img src="http://ricebowls.org/static/img/world-map.png" alt=""/></div>
-                 <div> Title: <p id= 'about'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel hendrerit velit. Integer dictum rutrum odio, pulvinar accumsan risus malesuada tempus. </p></div>
+             <div className = "world-image-wrapper" >
+                 <div className = 'worldImage' ><img className = "worldMap" src="http://ricebowls.org/static/img/world-map.png" alt=""/></div>
+                 <div> Name of child in photo <p id= 'about'> this is where the story of the child in the photo would go. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel hendrerit velit. Integer dictum rutrum odio, pulvinar accumsan risus malesuada tempus. </p></div>
              </div>
          </div>
          <div className = 'footer'>
@@ -111,7 +123,8 @@ export default class LandingPage extends Component {
             <Link to ={'/Donate'}style ={{textDecoration: 'none', color: "#552f1d"}}><div className ='donateBtn' >Donate</div></Link> 
              </div> 
             <div className = 'SM'>
-            <a href="https://www.facebook.com/NonProfit40/"><div className ='facebookBtn'></div></a>
+            <a href="https://www.facebook.com/NonProfit40/" style={{textDecoration: 'none'}}><div className ='facebookBtn' 
+            ></div></a>
              
             </div>
          </div>

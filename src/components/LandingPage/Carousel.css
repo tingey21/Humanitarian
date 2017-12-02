@@ -48,10 +48,11 @@
   
   .carousel {
     position: relative;
-    width: 500px !important; 
-    height: 500px;
+    width: 100% !important;
+    
   border: white solid 18px;}
     .carousel * {
+      
       margin: 0;
       padding: 0;
       -webkit-box-sizing: border-box;
@@ -69,6 +70,7 @@
 
      }
     .carousel .carousel {
+      
       position: relative; }
     .carousel .control-arrow {
       top: 50%;

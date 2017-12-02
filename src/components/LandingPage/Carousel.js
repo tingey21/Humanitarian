@@ -5,7 +5,7 @@ export default class componentName extends Component {
   render() {
     return (
         
-        <Carousel showThumbs={false} showArrows={true} showStatus={false} onChange={onChange} onClickItem={onClickItem}>
+        <Carousel  showThumbs={false} showArrows={true} showStatus={false} onChange={onChange} onClickItem={onClickItem}>
                 <div>
                     <img src="http://andykristian.com/wp-content/uploads/2011/06/15.jpg" />
                     <p className="legend">Legend 1</p>

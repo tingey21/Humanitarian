@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Dropzone  from 'react-dropzone'
-import img from '../../logo/logo.jpg'
+import img from '../../logo/logo.png'
 import './AddGetInvolved.css'
 export default class AddGetInvolved extends Component {
   constructor(){

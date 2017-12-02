@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import logo from '../../logo/logo.jpg'
+import logo from '../../logo/logo.png'
 import {Link} from 'react-router-dom'
 import './Newsletter.css'
 export default class Newsletter extends Component {

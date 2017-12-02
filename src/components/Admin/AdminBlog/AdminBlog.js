@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './AdminBlog.css'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-import logo from '../../logo/logo.jpg'
+import logo from '../../logo/logo.png'
 export default class AdminBlog extends Component {
   constructor(){
     super()
@@ -73,10 +73,10 @@ removeBlogPost(id){
           <div className = "brown">
           </div>
           <div className = "header" id = 'adminHeader' >
-        <div><Link to ={'/admin/newsletter'} style ={{textDecoration: 'none', color: "#552f1d"}}>News Letter</Link></div>
-        <div><Link to ={'/Admin/Blog'} style ={{textDecoration: 'none', color: "#552f1d"}}>Blog</Link></div>
-        <Link to ={'/admin'} style ={{textDecoration: 'none', color: "#552f1d"}}> <div className ='clickableLogo'><img className ='iconImage' id = 'hugePanda' src={logo} alt=""/></div></Link>
-        <div><Link to ={'/admin/GetInvolved'} style ={{textDecoration: 'none', color: "#552f1d"}}>Get Involved</Link></div>
+        <div><Link to ={'/admin/newsletter'} style ={{textDecoration: 'none', color: "#ffff"}}>News Letter</Link></div>
+        <div><Link to ={'/Admin/Blog'} style ={{textDecoration: 'none', color: "#ffff"}}>Blog</Link></div>
+        <Link to ={'/admin'} style ={{textDecoration: 'none', color: "#ffff"}}> <div className ='clickableLogo'><img className ='iconImage' id = 'hugePanda' src={logo} alt=""/></div></Link>
+        <div><Link to ={'/admin/GetInvolved'} style ={{textDecoration: 'none', color: "#ffff"}}>Get Involved</Link></div>
         
       </div>
 

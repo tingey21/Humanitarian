@@ -1,16 +1,26 @@
+.donate-page{
+    text-align: center;
+    
+}
+
 .donationImage{
     width: 100%;
-    height: 550px;
+    height: 350px;
     background: url('./africa.jpg') no-repeat;
     background-size: 100%;
     background-position: center top;
     display: flex;
     justify-content: center;
     align-content: center;
+    
+}
+
+.scalable{
+    width:100%;
 }
 .goal{
     width: 100%;
-    height: 300px;
+    height: 100vh;
 }
 
 .brownFont{
@@ -18,9 +28,11 @@
    font-weight: 700;
    margin-top: 100px;
 }
-.btn-primary{
+
+
+.btn-donate{
     outline: none;
-    background: rgb(146, 146, 146);
+    background: rgb(255, 255, 255);
     border-radius: 10px;
     width: 300px;
     height: 50px;
@@ -31,6 +43,7 @@
     
     font-weight: 700;
     margin-top: 75px;
+    
 }
 #donateTitle{
     font-size: 50px;
@@ -38,6 +51,96 @@
 }
 #donateTextWrapper{
     margin: auto;
-    width: 940px;
+    width: 75%
     
 }
+
+@media screen and (max-width: 740px) {
+    
+        .donationImage{
+            width: 100%;
+            height: 270px;
+            background: url('./africa.jpg') no-repeat cover;
+            background-size: 100%;
+            background-position: center top;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            
+        }
+    
+        #donateTitle{
+            font-size: 30px;
+            color: white;
+        }
+        
+        .whiteFont{
+            
+            font-weight: 700;
+            margin-top: 45px;
+            
+        }
+    
+        .btn-donate{
+            
+            width: 200px;
+            height: 25px;
+            font-size: 15px;
+              
+        }
+
+        #donateTextWrapper{
+            text-align: left;
+            padding: 20px;
+            font-size: 15px;
+            line-height: 19px;
+            
+        }
+    }
+    
+
+    
+@media screen and (max-width: 740px) {
+    
+        .donationImage{
+            width: 100%;
+            height: 200px;
+            background: url('./africa.jpg') no-repeat cover;
+            background-size: 100%;
+            background-position: center top;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            
+        }
+    
+        .brownFont{
+            font-size: 30px;
+            font-weight: 700;
+            margin-top: 100px;
+         }
+
+        #donateTitle{
+            font-size: 20px;
+            color: white;
+        }
+        
+        .whiteFont{
+            
+            font-weight: 700;
+            margin-top: 25px;
+            
+        }
+    
+        .btn-donate{
+            outline: none;
+            background: rgb(255, 255, 255);
+            border-radius: 10px;
+            width: 150px;
+            height: 25px;
+            font-size: 10px;
+            font-weight: 700;    
+        }
+    }
+    
+    
