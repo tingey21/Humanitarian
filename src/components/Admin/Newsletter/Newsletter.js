@@ -19,7 +19,7 @@ export default class Newsletter extends Component {
 
     componentWillMount(){
       axios.get('/auth/me').then(res => console.log(res.data)).catch( () => {
-        this.props.history.push('/401')
+        this.props.history.push('/')
       });
        axios.get( '/api/getAllEmails')
        .then( (resp) => {this.setState({
@@ -60,10 +60,10 @@ export default class Newsletter extends Component {
       <div className = "page">
       <div className = "brown"></div>
       <div className = "header" id = 'adminHeader'>
-        <div><Link to ={'/admin/newsletter'} style ={{textDecoration: 'none', color: "#552f1d"}}>News Letter</Link></div>
-        <div><Link to ={'/Admin/Blog'} style ={{textDecoration: 'none', color: "#552f1d"}}>Blog</Link></div>
-        <Link to ={'/admin'} style ={{textDecoration: 'none', color: "#552f1d"}}> <div className ='clickableLogo'><img className ='iconImage' id = 'hugePanda' src={logo} alt=""/></div></Link>
-        <div><Link to ={'/admin/GetInvolved'} style ={{textDecoration: 'none', color: "#552f1d"}}>Get Involved</Link></div>
+        <div><Link to ={'/admin/newsletter'} style ={{textDecoration: 'none', color: "#ffff"}}>News Letter</Link></div>
+        <div><Link to ={'/Admin/Blog'} style ={{textDecoration: 'none', color: "#ffff"}}>Blog</Link></div>
+        <Link to ={'/admin'} style ={{textDecoration: 'none', color: "#ffff"}}> <div className ='clickableLogo'><img className ='iconImage' id = 'hugePanda' src={logo} alt=""/></div></Link>
+        <div><Link to ={'/admin/GetInvolved'} style ={{textDecoration: 'none', color: "#ffff"}}>Get Involved</Link></div>
         
       </div>
       <div className ='gmailClone'>

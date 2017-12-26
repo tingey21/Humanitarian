@@ -9,7 +9,7 @@ export default class LandingPage extends Component {
  //  <Route path = '/admin/GetInvolved' component = {AdminGetInvolved} />
  componentWillMount(){
   axios.get('/auth/me').then(res => console.log()).catch( () => {
-    this.props.history.push('/401')
+    this.props.history.push('/')
   });
  } 
 

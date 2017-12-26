@@ -8,6 +8,9 @@ import axios from 'axios'
 import  header from './websitelogo.jpg'
 import logo from '../logo/logo.png'
 import menu from '../logo/menu.svg'
+import photo from '../../assets/seth-doyle-78210.jpg'
+import worldMap from '../../assets/world-map.png'
+import child from '../../assets/madi-robson-113926.jpg'
 export default class LandingPage extends Component {
     constructor()
     {
@@ -39,12 +42,14 @@ export default class LandingPage extends Component {
         var emailToUse = {
             email: this.state.email
         }
-        var arr =emailToUse.email.split('@');
+        if(emailToUse.email.includes('@')){
+            console.log('this includes @')
+        }
         this.setState({inputEmail: true, handleCorrect: false})
         
-    axios.get(`https://api.mailtest.in/v1/${arr[1]}`).then((resp) =>{ console.log(resp.data.status)
+   
     
-        if(resp.data.status === 'ACTIVE' && this.state.send){
+        if(emailToUse.email.includes('@')){
             axios.post('/api/addEmail', emailToUse)
             this.setState({
                 inputEmail: true,
@@ -53,15 +58,14 @@ export default class LandingPage extends Component {
             })
         }
         else{
-            console.log('Error')
             this.setState({
                 inputEmail: false,
                 handleCorrect: false
             })
         }
-})
+}
 
-    }
+    
 
   render() {
     return (
@@ -85,11 +89,13 @@ export default class LandingPage extends Component {
              
              <Header />
          </div>
-         <div className = 'title'> THE NON PROFIT</div>
-         <div className = "imgscroller">
-             <div className = "stuff"><Carousel  /></div>
+        
+       
+             <div className = "stuff">
+             <div className = 'title'> THE NON PROFIT</div>
+             </div>
              
-         </div>
+        
          <div className = "aboutSection">
              <div className = 'about'>about: <p id= 'about'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel hendrerit velit. Integer dictum rutrum odio, pulvinar accumsan risus malesuada tempus. </p></div>
              <div className = 'icon'><img className ='iconImage' src={header} alt="the Non profit Logo"/></div>
@@ -111,9 +117,9 @@ export default class LandingPage extends Component {
                  <p id= 'about'>Since the world has existed, there has been injustice. But it is one world, the more so as it becomes smaller, more accessible. There is just no question that there is more obligation that those who have should give to those who have nothing.” </p> </div>
          </div>
          <div className = 'photoAndStory'>
-             <div className ="Image"><img className = 'aboutImage' src="https://binoandfino.files.wordpress.com/2010/08/cropped-small-698694_85227669-gambian-girl.jpg" alt=""/></div>
+             <div className ="Image"><img className = 'aboutImage' src={child} alt=""/></div>
              <div className = "world-image-wrapper" >
-                 <div className = 'worldImage' ><img className = "worldMap" src="http://ricebowls.org/static/img/world-map.png" alt=""/></div>
+                 <div className = 'worldImage' ><img className = "worldMap" src={worldMap} alt=""/></div>
                  <div> Name of child in photo <p id= 'about'> this is where the story of the child in the photo would go. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel hendrerit velit. Integer dictum rutrum odio, pulvinar accumsan risus malesuada tempus. </p></div>
              </div>
          </div>
@@ -123,7 +129,7 @@ export default class LandingPage extends Component {
             <Link to ={'/Donate'}style ={{textDecoration: 'none', color: "#552f1d"}}><div className ='donateBtn' >Donate</div></Link> 
              </div> 
             <div className = 'SM'>
-            <a href="https://www.facebook.com/NonProfit40/" style={{textDecoration: 'none'}}><div className ='facebookBtn' 
+            <a href="https://alexandertingey.com" style={{textDecoration: 'none'}}><div className ='facebookBtn' 
             ></div></a>
              
             </div>

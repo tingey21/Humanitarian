@@ -59,24 +59,27 @@
     
 }
 .title{
+    padding-top: 20px;
+    display: flex;
     font-size: 50px;
     font-weight:700;
-    padding: 40px;
+    
     letter-spacing: 10px;
     text-align: center;
+    text-decoration: underline;
 }
 
-.imgscroller{
-    display: flex;
-    justify-content: center;
-    
-    width: 100%
-    
-    
-}
 .stuff{
-    width: 30%;
-    padding-right: 40px;
+    display: flex;
+    margin: auto;
+    width: 65%;
+    background-image: url('../../assets/luca-zanon-112132.jpg');
+    background-size: cover;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    justify-content: center;
+
 }
 
 .aboutSection{
@@ -673,10 +676,7 @@
 
   @media screen and (max-width: 740px) {
     
-    .stuff{
-        width: 50%;
-        padding-right: 40px;
-    }
+   
     
     .aboutSection{
           flex-direction: column;
@@ -730,6 +730,17 @@
 
   @media screen and (max-width: 500px) {
 
+     .aboutSection, .news, .photoAndStory{
+        width: 95%;
+        
+    }
+
+    .stuff{
+        width: 100%;
+        background-position: center;
+    }
+
+    
     .getInvolvedBtn{
         height: 33px;
         width: 100px;
@@ -756,3 +767,4 @@
        
 
   }
+

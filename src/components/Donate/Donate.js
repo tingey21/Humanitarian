@@ -39,7 +39,7 @@ export default class Donate extends Component {
         <div  className = "scalable">
           <div>
             <h3 className = 'whiteFont' id = 'donateTitle'>Help Our Non Profit</h3>
-            <p className = 'whiteFont'> Help Make a Difference and Donate Today!</p>
+            <p className = 'whiteFont'> Make a Difference and Donate Today!</p>
           </div>  
          <StripeCheckout
          className = 'but'

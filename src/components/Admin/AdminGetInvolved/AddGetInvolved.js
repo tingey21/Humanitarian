@@ -24,7 +24,7 @@ export default class AddGetInvolved extends Component {
   componentWillMount(){
     console.log('here')
    axios.get('/auth/me').then(res => console.log(res.data)).catch( () => {
-     this.props.history.push('/401')
+     this.props.history.push('/')
    });
   } 
 
