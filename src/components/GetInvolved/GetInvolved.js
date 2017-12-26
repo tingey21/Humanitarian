@@ -25,7 +25,6 @@ componentDidMount(){
 
  loading(){
   
-  console.log(this.state.timeout)
   setTimeout( () =>{
    
     this.setState({

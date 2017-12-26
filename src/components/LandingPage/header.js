@@ -17,9 +17,7 @@ export default class Header extends Component {
         this.setState({
             animate: true
         })
-        console.log(this.state.animate)
      setTimeout( () => { 
-        console.log(this.state.animate)
          this.setState({
          animate: false
          })

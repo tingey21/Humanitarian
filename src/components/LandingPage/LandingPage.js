@@ -43,7 +43,6 @@ export default class LandingPage extends Component {
             email: this.state.email
         }
         if(emailToUse.email.includes('@')){
-            console.log('this includes @')
         }
         this.setState({inputEmail: true, handleCorrect: false})
         
@@ -92,13 +91,13 @@ export default class LandingPage extends Component {
         
        
              <div className = "stuff">
-             <div className = 'title'> THE NON PROFIT</div>
+            
              </div>
              
         
          <div className = "aboutSection">
              <div className = 'about'>about: <p id= 'about'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel hendrerit velit. Integer dictum rutrum odio, pulvinar accumsan risus malesuada tempus. </p></div>
-             <div className = 'icon'><img className ='iconImage' src={header} alt="the Non profit Logo"/></div>
+             
          </div>
          <div className = "news">
              <div className = "email">
@@ -106,7 +105,6 @@ export default class LandingPage extends Component {
                  <div > Want amazing stories and Non Profit news in your inbox? Hop on the list!</div>
                  <div className ='emailContainer' > 
                      <input className = {this.state.inputEmail ? 'inputEmail' : 'inputfalse'} id ={this.state.handleCorrect ? 'greenlight' : ''} type="text" placeholder={'your email'} onChange ={this.handleChange}/>
-                 {console.log( )}
                  <button onClick = {this.handleSubmit} className = "button">
                      submit
                  </button>
