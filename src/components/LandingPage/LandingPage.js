@@ -106,7 +106,7 @@ export default class LandingPage extends Component {
                  <div > Want amazing stories and Non Profit news in your inbox? Hop on the list!</div>
                  <div className ='emailContainer' > 
                      <input className = {this.state.inputEmail ? 'inputEmail' : 'inputfalse'} id ={this.state.handleCorrect ? 'greenlight' : ''} type="text" placeholder={'your email'} onChange ={this.handleChange}/>
-                 {console.log( )}
+                 
                  <button onClick = {this.handleSubmit} className = "button">
                      submit
                  </button>

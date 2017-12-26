@@ -25,7 +25,7 @@ export default class Blog extends Component {
 
   loading(){
     
-    console.log(this.state.timeout)
+    
     setTimeout( () =>{
      
       this.setState({
@@ -52,7 +52,7 @@ export default class Blog extends Component {
     }
    
     if(this.state.blogs){
-      console.log("now")
+      
     var posts = this.state.blogs.map((blog, i) => {
       return(
         <div className = "blogContainer" key = {i}>

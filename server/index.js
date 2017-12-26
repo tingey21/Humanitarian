@@ -300,5 +300,5 @@ app.post('/api/sendNewsLetter', (req,res) => {
       res.sendFile(path.join(__dirname, '../build/index.html'));
     })
 
-const PORT = 8080;
+const PORT = 80;
 app.listen(PORT, () => console.log(`listening on port: ${PORT} `))
